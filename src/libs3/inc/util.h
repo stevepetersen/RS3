@@ -57,12 +57,12 @@
 // https://s3.amazonaws.com/${BUCKET}/${KEY}?acl
 // 255 is the maximum bucket length
 #define MAX_URI_SIZE \
-    ((sizeof("https:///") - 1) + S3_MAX_HOSTNAME_SIZE + 255 + 1 +       \
-     MAX_URLENCODED_KEY_SIZE + (sizeof("?torrent" - 1)) + 1)
+    ((strlen("https:///") - 1) + S3_MAX_HOSTNAME_SIZE + 255 + 1 +       \
+     MAX_URLENCODED_KEY_SIZE + (strlen("?torrent") - 1) + 1)
 
 // Maximum size of a canonicalized resource
 #define MAX_CANONICALIZED_RESOURCE_SIZE \
-    (1 + 255 + 1 + MAX_URLENCODED_KEY_SIZE + (sizeof("?torrent") - 1) + 1)
+    (1 + 255 + 1 + MAX_URLENCODED_KEY_SIZE + (strlen("?torrent") - 1) + 1)
 
 
 // Utilities -----------------------------------------------------------------

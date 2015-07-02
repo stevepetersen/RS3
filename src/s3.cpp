@@ -52,6 +52,7 @@ int S3_init() {
         return 0;
     }
     Rcout << "\ninitialized correctly\n";
+    return 0;
 }
 
 static void printError() {
@@ -345,8 +346,7 @@ static S3Status responsePropertiesCallback(const S3ResponseProperties *propertie
     }
     int i;
     for(i = 0; i < properties->metaDataCount; i++) {
-        printf("x-amz-meta-%s\n", properties->metaData[i].name,
-                properties->metaData[i].value);
+        printf("x-amz-meta-%s\n", properties->metaData[i].name);
     }
     //if(properties->usesServerSideEncryption) {
         //printf("UsesServerSideEncryption: true\n");
@@ -360,8 +360,7 @@ static void responseCompleteCallback(S3Status status, const S3ErrorDetails *erro
 
     statusG = status;
 
-    int len = 0;
-
+ 
 }
 
 // [[Rcpp::export(S3_test_bucket)]]
@@ -570,7 +569,7 @@ static S3Status listBucketCallback(int isTruncated, const char* nextMarker, int 
             Rcout << content->key << " " << timebuf << " " << sizebuf;
             if (data->allDetails) {
                 //Rcout << "   " << content->eTag  << "  " << content->ownerId ? content->ownerId : "" \
-                    << content->ownerDisplayName ? content->ownerDisplayName : "";
+                //    << content->ownerDisplayName ? content->ownerDisplayName : "";
             }
             Rcout << "\n";
         }
