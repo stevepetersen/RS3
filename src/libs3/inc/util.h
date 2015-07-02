@@ -31,6 +31,7 @@
 #include <curl/multi.h>
 #include <stdint.h>
 #include "libs3.h"
+#include <string.h>
 
 // acl groups
 #define ACS_URL "http://acs.amazonaws.com/groups/"
